@@ -14,7 +14,7 @@ DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
                   --master_port $MASTER_PORT"
 
 BASE_PATH="/data"
-PROJECT_PATH="${BASE_PATH}/agent"
+PROJECT_PATH="${BASE_PATH}/Mistral-Interact"
 
 OPTS=""
 # dataset config
@@ -36,7 +36,7 @@ OPTS+=" --start_step 0"
 OPTS+=" --loss_scale 6400"
 OPTS+=" --tensorboard ${PROJECT_PATH}/tensorboard_sft/"`date +"%Y%m%d%H%M%S"`
 
-OPTS+=" --save_dir ${PROJECT_PATH}/ckpts8" # TODO
+OPTS+=" --save_dir ${PROJECT_PATH}/mistral" # TODO
 # OPTS+=" --load_ckpt /mnt/data/user/tc_agi/user/chenyulin/checkpoints/ultrachat_llama-65b-3800"
 
 CMD="torchrun ${DISTRIBUTED_ARGS} ${PROJECT_PATH}/src/sft.py ${OPTS}"
@@ -45,4 +45,4 @@ echo "-------final CMD is------"
 echo "${CMD}"
 echo "-------final CMD end------"
 
-${CMD} 2>&1 | tee ${PROJECT_PATH}/logs/finetune.log
+${CMD} 2>&1 | tee ${PROJECT_PATH}/logs/finetune_mistral.log

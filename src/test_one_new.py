@@ -134,7 +134,7 @@ def load_raw_dataset(args, tokenizer):
     with open(args.data_dir, 'r', encoding='utf-8') as f:
         for line in f:
             task = json.loads(line)["task"]
-            if args.model_name == "mistral-interact":
+            if args.model_name == "mistral-interact" or args.model_name == "llama2-interact":
                 processed_task = preprocess_data(task)
             elif args.model_name == "llama-2-7b-chat":
                 processed_task = preprocess_llama_base_data(task)
@@ -145,7 +145,7 @@ def load_raw_dataset(args, tokenizer):
             tasks.append(processed_task)
     
     # random.seed(233)
-    random.shuffle(tasks)
+    # random.shuffle(tasks)
     return tasks[args.start_from:]
 
 def main_loop(args, test_dataset, tokenizer, model):
@@ -183,7 +183,7 @@ def main_loop(args, test_dataset, tokenizer, model):
                             # top_k=40,
                         )
                         pred = preds[0]
-                        if args.model_name == "mistral-interact":
+                        if args.model_name == "mistral-interact" or args.model_name == "llama2-interact":
                             # Parse Initial Thought
                             if "[INITIAL THOUGHT]" in pred:
                                 initial_thought:str = pred.split("[INITIAL THOUGHT]")[1].split("[INQUIRY THOUGHT]")[0].strip()
@@ -279,7 +279,7 @@ def main_loop(args, test_dataset, tokenizer, model):
                     option_num = int(input("How many options are given in the 'Assistant Response' provided? ").strip())
                     inappropriate_option_num = int(input("How many options given do you think is unreasonable? ").strip())
                     actions.append({"role": "Assistant", "thought": thought, "content": response, "type": "response", "option_num": option_num, "inappropriate_option_num": inappropriate_option_num})
-                    if args.model_name == "mistral-interact":
+                    if args.model_name == "mistral-interact" or args.model_name == "llama2-interact":
                         prompt += pred + "\n"
                     else:
                         prompt += pred + " </s>"
@@ -297,7 +297,7 @@ def main_loop(args, test_dataset, tokenizer, model):
             if user_input.lower().strip() == "back":
                 back_flag = True
                 actions = actions[:-2]
-                if args.model_name == "mistral-interact":
+                if args.model_name == "mistral-interact" or args.model_name == "llama2-interact":
                     prompt = "User: ".join(prompt.split("User: ")[:-1]).strip() + "\n"
                 else:
                     prompt = "<s>[INST] ".join(prompt.split("<s>[INST] ")[:-1]).strip()
@@ -305,7 +305,7 @@ def main_loop(args, test_dataset, tokenizer, model):
                 print(prompt.split("Here is the task:")[1].strip())
                 print("=-=-=-=-=    =-=-=-=-=-=-=    =-=-=-=-=")
             elif user_input.strip() != "":
-                if args.model_name == "mistral-interact":
+                if args.model_name == "mistral-interact" or args.model_name == "llama2-interact":
                     prompt += "User: " + user_input + "\nAgent: "
                 else:
                     prompt += "<s>[INST] " + user_input + " [/INST]\n"

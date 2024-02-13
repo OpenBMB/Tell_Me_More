@@ -10,8 +10,8 @@ GPUS_PER_NODE=1
 
 
 BASE_PATH="/data"
-PROJECT_PATH="${BASE_PATH}/agent"
-CKPT_DIRECTORY_NAME="ckpts8" # TODO
+PROJECT_PATH="${BASE_PATH}/Mistral-Interact"
+CKPT_DIRECTORY_NAME="mistral" # TODO
 CKPT_DIRECTORY="${PROJECT_PATH}/${CKPT_DIRECTORY_NAME}" 
 subdirectory_name="step_1737" # TODO
 
@@ -31,6 +31,11 @@ OPTS+=" --model_name mistral-interact"
 OPTS+=" --model_name_or_path ${BASE_PATH}/model_weights/mistral-7b"
 OPTS+=" --load_ckpt ${CKPT_DIRECTORY}/${subdirectory_name}"
 
+# ====== Llama2-Interact ==
+# OPTS+=" --model_name llama2-interact"
+# OPTS+=" --model_name_or_path ${BASE_PATH}/model_weights/llama-2-7b"
+# OPTS+=" --load_ckpt ${CKPT_DIRECTORY}/${subdirectory_name}"
+
 # ====== Mistral-7B-Instruct-v0.2 ======
 # OPTS+=" --model_name mistral-7b-instruct-v0.2"
 # OPTS+=" --model_name_or_path ${BASE_PATH}/model_weights/mistral-7b-instruct-v0.2"
@@ -41,7 +46,7 @@ OPTS+=" --load_ckpt ${CKPT_DIRECTORY}/${subdirectory_name}"
 
 # TODO
 OPTS+=" --output_dir ${PROJECT_PATH}/interaction_output_case_study/${CKPT_DIRECTORY_NAME}"
-OPTS+=" --start_from 14"
+OPTS+=" --start_from 0" # TODO
 
 CMD="torchrun ${DISTRIBUTED_ARGS} ${PROJECT_PATH}/src/test_one_new.py ${OPTS}"
 
