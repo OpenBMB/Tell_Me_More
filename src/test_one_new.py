@@ -63,11 +63,11 @@ def initialize():
     # get arguments
     parser = argparse.ArgumentParser("")
     # model arguments
-    parser.add_argument("--model_name", type=str, default='/data/qiancheng/ckpts/mistral-7b')
-    parser.add_argument("--model_name_or_path", type=str, default='/data/qiancheng/ckpts/mistral-7b')
+    parser.add_argument("--model_name", type=str, default='')
+    parser.add_argument("--model_name_or_path", type=str, default='')
     parser.add_argument("--load_ckpt", type=str, default=None)
-    parser.add_argument("--data_dir", type=str, default='/data/qiancheng/datasets/vagueness_augmented_test.jsonl')
-    parser.add_argument('--output_dir', type=str, default='/data/qiancheng/output')
+    parser.add_argument("--data_dir", type=str, default='')
+    parser.add_argument('--output_dir', type=str, default='')
     parser.add_argument('--start_from', type=int, default=0)
 
     args = parser.parse_args()

@@ -27,10 +27,10 @@ def initialize():
     # get arguments
     parser = argparse.ArgumentParser("")
     # model arguments
-    parser.add_argument("--model_name_or_path", default='/data/qiancheng/ckpts/mistral-7b')
-    parser.add_argument("--load_ckpt", type=str, default="/data/qiancheng/ckpts/step_1161_M_w_S")
-    parser.add_argument("--data_dir", type=str, default='/data/qiancheng/datasets/interaction_data_test.jsonl')
-    parser.add_argument('--output_dir', type=str, default='/data/qiancheng/output')
+    parser.add_argument("--model_name_or_path", default='')
+    parser.add_argument("--load_ckpt", type=str, default="")
+    parser.add_argument("--data_dir", type=str, default='')
+    parser.add_argument('--output_dir', type=str, default='')
 
     args = parser.parse_args()
     # init bmt 

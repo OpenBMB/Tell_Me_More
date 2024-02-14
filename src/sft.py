@@ -98,9 +98,6 @@ def get_learning_rate_scheduler(args, optimizer):
         )
     else:
         raise NotImplementedError
-    # if args.start_step != 0:
-        # logger.info(f"loading scheduler from step {args.start_step}")
-        # lr_scheduler.load_state_dict(torch.load(os.path.join(args.save_dir, f"ultrachat_{args.model}/step_{args.start_step}/scheduler.pt")))
     return lr_scheduler
 
 
@@ -123,7 +120,7 @@ def initialize():
     
     # model training arguments
     parser.add_argument("--lr", type=float, default=1e-5)
-    parser.add_argument("--model_name_or_path", default='/data/private/hebingxiang/model_weights/llama-2-7b')
+    parser.add_argument("--model_name_or_path", default='')
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--max_seq_length", default=2048, type=int)
@@ -144,7 +141,7 @@ def initialize():
     parser.add_argument('--max_train_samples', type=int, help='The maximum number of training samples')
 
     parser.add_argument('--cache_dir', type=str, help='The directory for cache')
-    parser.add_argument("--save_dir", type=str, default="/data/models/chenyulin/ultrachat-llama")
+    parser.add_argument("--save_dir", type=str, default="")
 
     parser.add_argument("--save_limit", type=int, default=None, help="ckpt saved limit number")
 

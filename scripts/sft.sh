@@ -37,7 +37,6 @@ OPTS+=" --loss_scale 6400"
 OPTS+=" --tensorboard ${PROJECT_PATH}/tensorboard_sft/"`date +"%Y%m%d%H%M%S"`
 
 OPTS+=" --save_dir ${PROJECT_PATH}/mistral" # TODO
-# OPTS+=" --load_ckpt /mnt/data/user/tc_agi/user/chenyulin/checkpoints/ultrachat_llama-65b-3800"
 
 CMD="torchrun ${DISTRIBUTED_ARGS} ${PROJECT_PATH}/src/sft.py ${OPTS}"
 

@@ -1,0 +1,7 @@
+model_center==1.0.3
+transformers
+datasets
+bmtrain
+cprint
+wandb
+torch
