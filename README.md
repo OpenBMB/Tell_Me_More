@@ -41,13 +41,11 @@ Current agent benchmarks usually assume the clearance of given tasks and exclude
 
 **It is located in the [data/IN3](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/IN3) directory.**
 
-<center>
-   <img src="figures/dataset_a.png" alt="Construction of IN3" width="800" height="450"><br>
-</center>
-
-<p align="center">
-  <b>Construction of IN3</b>
-</p>
+<div align="center">
+    <img src="figures/dataset_a.png" alt="Construction of IN3" width="800"/>
+    <br/>
+    <figcaption><b>Construction of IN3</b></figcaption>
+</div>
 
 
 As illustrated in the figure above , with human-written seed tasks (**Step 1**), the model iteratively generates new tasks to augment the dataset, while sampling demonstrations from the dataset as new examples for itself to perform the next round of generation (**Step 2**). We perform human annotation of each task’s vagueness, missing details, and each detail’s importance level and potential options with the help of GPT-4 (**Step 3**). GPT-4 will first suggest the task’s vagueness and potential missing details with options and importance level, while human annotators take them as references and adapt them with their own perspectives and intentions.
@@ -68,13 +66,11 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
 
 **It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.**
 
-<center>
-    <img src="figures/dataset_bc.png" alt="Construction of Training Data" width="800" height="400"></br>
-</center>
-
-<p align="center">
-  <b>Construction of Training Data</b>
-</p>
+<div align="center">
+    <img src="figures/dataset_bc.png" alt="Construction of Training Data" width="800"/>
+    <br/>
+    <figcaption><b>Construction of Training Data</b></figcaption>
+</div>
 
 With IN3's annotations regarding task vagueness, missing details, and potential options, we apply several strategies during the construction of conversation records to better inspire the target model's robust inquiry and reasoning ability.
 
