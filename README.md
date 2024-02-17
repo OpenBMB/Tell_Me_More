@@ -1,8 +1,15 @@
 <div align="center">
-    <h1> <img src="figures/agent.png" height=60 align="texttop">  Mistral-Interact</h1>
+    <h1> <img src="figures/agent.png" height=40 align="texttop">  Mistral-Interact</h1>
 </div>
 
-![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)![Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
+<p align="center">
+  <a target="_blank">
+    <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg">
+  </a>
+  <a target="_blank">
+    <img alt="GitHub" src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat">
+  </a>
+</p>
 
 <p align="center">
   <a href="#features">Features</a> •
