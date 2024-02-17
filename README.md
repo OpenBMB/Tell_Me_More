@@ -51,7 +51,7 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
       <figcaption><b>Construction of Training Data</b></figcaption>
   </figure>
 </center>
-**It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.**
+It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.
 
 With IN3's annotations regarding task vagueness, missing details, and potential options, we apply several strategies during the construction of conversation records to better inspire the target model's robust inquiry and reasoning ability.
 
@@ -135,7 +135,7 @@ An agent's intention understanding capability can be assessed directly through u
 
 ## Citation
 
-Feel free to cite the repo if you think it is useful.
+Feel free to cite the paper if you find it is useful.
 
 ```bibtex
 @article{cheng2024tell,
