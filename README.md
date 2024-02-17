@@ -1,5 +1,5 @@
 <div align="center">
-    <h1> <img src="figures/agent.png" height=40 align="texttop">  Mistral-Interact</h1>
+    <h1> <img src="figures/agent.png" height=50 align="texttop">  Mistral-Interact</h1>
 </div>
 
 <p align="center">
