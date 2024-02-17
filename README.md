@@ -22,7 +22,7 @@ The repo is for the implementation and evaluation of Mistral-Interact, a powerfu
 
 Source codes and datasets for **[Tell Me More! Towards Implicit User Intention Understanding of Language Model Driven Agents](https://arxiv.org/abs/2402.09205)**. We release Intention-in-Interaction (IN3) benchmark and develop Mistral-Interact, capable of discerning vague instructions and recovering missing details.
 
-## ✨Features
+## ✨ Features
 
 Mistral-Interact has the following features:
 
@@ -33,7 +33,9 @@ Mistral-Interact has the following features:
 
 - **Comparable performance with closed-source GPT-4** We prove that smaller-scale model experts can approach or even exceed general-purpose large-scale models across various aspects including vagueness judgment, comprehensiveness of summaries, and friendliness of interaction.
 
-## 📖Introduction
+<div><a id="Introduction"></a></div>
+
+## 📖 Introduction
 
 ### Intention-in-Interaction (IN3) benchmark
 
@@ -55,7 +57,9 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
 - We apply training split tasks in IN3 to construct simulated model-user conversation records that provide explicit initial thoughts, rounds of queries with options, summarization of implicit intentions, and diverse user response tones. 
 - Training on these conversations, we adapt [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) into **Mistral-Interact**, a powerful and robust variant capable of judging the vagueness of user instruction, actively querying for missing details with suggestions, and explicitly summarizing the detailed and clear user intentions.
 
-## 🛠️Training
+<div><a id="Training"></a></div>
+
+## 🛠️ Training
 
 ### Construction of Training Data
 
@@ -93,7 +97,9 @@ Just run the script in the root of repo to start training:
 bash scripts/sft.sh
 ```
 
-## 📊Evaluation
+<div><a id="Evaluation"></a></div>
+
+## 📊 Evaluation
 
 An agent's intention understanding capability can be assessed directly through user interaction and indirectly through downstream task execution.
 
@@ -117,7 +123,7 @@ Instruction understanding does not involve any real-time agent execution, so we 
 
 We use the [test split](https://github.com/HBX-hbx/Mistral-Interact/blob/master/data/IN3/test.jsonl) of IN3 agent tasks for evaluation. Conversation records based on **Mistral-Interact**, **LLaMA-2-7B-Chat**, **Mistral-7B-Instruct-v0.2**, and **GPT-4** are located in **[here](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/user_interaction_records)**.
 
-- Firstly, we split the inquiry from Assistant into separate queries and options with the help of GPT-4. (Do not forget to add your API key in **src/utils.py**)
+- Firstly, we split the inquiry from Assistant into separate queries and options with the help of GPT-4. (Do not forget to add your API key in **src/utils.py**).
 
   ```python
   python src/split_query_options.py
@@ -142,6 +148,8 @@ We use the [test split](https://github.com/HBX-hbx/Mistral-Interact/blob/master/
     <img src="figures/exp_results.png" width="800" height="300">
   </figure>
 </center>
+
+
 ### Instruction Execution
 
 To evaluate the effectiveness of the implicit intention understanding for instruction execution, we integrate Mistral-Interact as an upstream interaction module into the [XAgent](https://github.com/OpenBMB/XAgent) framework, an autonomous agent system for complex task solving.
@@ -159,6 +167,8 @@ To evaluate the effectiveness of the implicit intention understanding for instru
     <img src="figures/exp_results_2.png" width="1000" height="170">
   </figure>
 </center>
+<div><a id="Contributions"></a></div>
+
 ## 🌟Contributions
 
 - We formulate a new research question regarding the enhancement of user-agent interaction through robust intention understanding, and release the IN3 benchmark that focuses on user participation within current agent designs.
