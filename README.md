@@ -42,10 +42,8 @@ Current agent benchmarks usually assume the clearance of given tasks and exclude
 **It is located in the [data/IN3](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/IN3) directory.**
 
 <center>
-  <figure>
-    <img src="figures/dataset_a.png" alt="Construction of IN3" width="800" height="450">
-      <center><b>Construction of IN3</b></center>
-  </figure>
+   <img src="figures/dataset_a.png" alt="Construction of IN3" width="800" height="450"><br>
+    <b>Construction of IN3</b>
 </center>
 
 
@@ -68,10 +66,8 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
 **It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.**
 
 <center>
-  <figure>
-    <img src="figures/dataset_bc.png" alt="Construction of Training Data" width="800" height="400">
-      <center><b>Construction of Training Data</b></center>
-  </figure>
+    <img src="figures/dataset_bc.png" alt="Construction of Training Data" width="800" height="400"></br>
+    <b>Construction of Training Data</b>
 </center>
 
 With IN3's annotations regarding task vagueness, missing details, and potential options, we apply several strategies during the construction of conversation records to better inspire the target model's robust inquiry and reasoning ability.
