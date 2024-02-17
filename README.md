@@ -50,6 +50,7 @@ Current agent benchmarks usually assume the clearance of given tasks and exclude
 </div>
 
 
+
 As illustrated in the figure above , with human-written seed tasks (**Step 1**), the model iteratively generates new tasks to augment the dataset, while sampling demonstrations from the dataset as new examples for itself to perform the next round of generation (**Step 2**). We perform human annotation of each task’s vagueness, missing details, and each detail’s importance level and potential options with the help of GPT-4 (**Step 3**). GPT-4 will first suggest the task’s vagueness and potential missing details with options and importance level, while human annotators take them as references and adapt them with their own perspectives and intentions.
 
 ### Mistral-Interact
@@ -75,6 +76,8 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
     <br/>
     <figcaption><b>Figure 2: Construction of training data.</b></figcaption>
 </div>
+
+
 
 With IN3's annotations regarding task vagueness, missing details, and potential options, we apply several strategies during the construction of conversation records to better inspire the target model's robust inquiry and reasoning ability.
 
@@ -172,7 +175,7 @@ To evaluate the effectiveness of the implicit intention understanding for instru
 <div align="center">
     <img src="figures/xagent_case_study.png" alt="Case study on the agent execution process before and after interaction with Mistral-Interact in agent design." width="800"/>
     <br/>
-    <figcaption><b>Figure 3: Case study on the agent execution process before and after interaction with Mistral-Interact in agent design.</b></figcaption>
+    <figcaption><b>Figure 3: Case study on the agent execution process.</b></figcaption>
 </div>
 
 <div><a id="Contributions"></a></div>
