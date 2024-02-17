@@ -1,5 +1,5 @@
 <div align="center">
-    <h1> <img src="figures/agent.png" height=50 align="texttop">  Mistral-Interact</h1>
+    <h1> <img src="figures/agent.png" height=50 align="texttop">  Tell Me More!</h1>
 </div>
 
 <p align="center">
@@ -46,7 +46,7 @@ Current agent benchmarks usually assume the clearance of given tasks and exclude
 <div align="center">
     <img src="figures/dataset_a.png" alt="Construction of IN3" width="800"/>
     <br/>
-    <figcaption><b>Construction of IN3</b></figcaption>
+    <figcaption><b>Figure 1: Construction of IN3.</b></figcaption>
 </div>
 
 
@@ -73,7 +73,7 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
 <div align="center">
     <img src="figures/dataset_bc.png" alt="Construction of Training Data" width="800"/>
     <br/>
-    <figcaption><b>Construction of Training Data</b></figcaption>
+    <figcaption><b>Figure 2: Construction of training data.</b></figcaption>
 </div>
 
 With IN3's annotations regarding task vagueness, missing details, and potential options, we apply several strategies during the construction of conversation records to better inspire the target model's robust inquiry and reasoning ability.
@@ -167,6 +167,14 @@ To evaluate the effectiveness of the implicit intention understanding for instru
     <img src="figures/exp_results_2.png" width="1000" height="170">
   </figure>
 </center>
+#### Case Study
+
+<div align="center">
+    <img src="figures/xagent_case_study.png" alt="Case study on the agent execution process before and after interaction with Mistral-Interact in agent design." width="800"/>
+    <br/>
+    <figcaption><b>Figure 3: Case study on the agent execution process before and after interaction with Mistral-Interact in agent design.</b></figcaption>
+</div>
+
 <div><a id="Contributions"></a></div>
 
 ## 🌟Contributions
@@ -176,10 +184,7 @@ To evaluate the effectiveness of the implicit intention understanding for instru
 - We create a set of new metrics regarding the evaluation of user-agent interaction, which takes into consideration both the quantifiability of results and alignment to user preferences for future benchmarks to follow.
 - We prove the viability of our method through comprehensive experiments and case studies on the XAgent framework, thereby promoting a new mechanism and paradigm of user-agent interaction in agent designs.
 
-## Limitations
-
-- Our work primarily utilizes the Mistral-7B model as the backbone to validate the efficacy of our method. We anticipate that our findings can be extended to additional open-source models to enable comprehensive evaluation. 
-- Furthermore, our evaluation process incorporates user participation to assess both instruction understanding and execution. However, this approach may introduce personal biases and lack time efficiency. To mitigate these issues, future works can employ models like GPT to simulate user interactions, thereby facilitating automated evaluations that offer greater consistency.
+<div><a id="Citation"></a></div>
 
 ## Citation
 
