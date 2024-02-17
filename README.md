@@ -44,7 +44,7 @@ Current agent benchmarks usually assume the clearance of given tasks and exclude
 **It is located in the [data/IN3](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/IN3) directory.**
 
 <div align="center">
-    <img src="figures/dataset_a.png" alt="Construction of IN3" width="800"/>
+    <img src="figures/dataset_a.png" alt="Construction of IN3" width="600"/>
     <br/>
     <figcaption><b>Figure 1: Construction of IN3.</b></figcaption>
 </div>
@@ -101,6 +101,18 @@ bash scripts/sft.sh
 ```
 
 <div><a id="Evaluation"></a></div>
+
+## 🎮 Inference
+
+Download **Mistral-Interact** [here]((https://huggingface.co/hbx/Mistral-Interact)), and put it under `./models`. The model weights downloaded from huggingface is the format of huggingface. For inference, we need to convert the format from huggingface to model-center using [src/hf_2_mc.py](https://github.com/HBX-hbx/Mistral-Interact/blob/master/src/hf_2_mc.py).
+
+Then run the following script in the root of repo to start inferencing:
+
+```shell
+bash scripts/test_one_new.sh
+```
+
+
 
 ## 📊 Evaluation
 
