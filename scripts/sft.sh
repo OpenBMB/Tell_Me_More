@@ -13,20 +13,20 @@ DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
                   --master_addr $MASTER_ADDR \
                   --master_port $MASTER_PORT"
 
-BASE_PATH="/data"
-PROJECT_PATH="${BASE_PATH}/Mistral-Interact"
+BASE_PATH="."
+PROJECT_PATH="."
 
 OPTS=""
 # dataset config
-OPTS+=" --data_setting MTMD" # TODO: MTSD or MTMD
-OPTS+=" --data_dir ${BASE_PATH}/datasets/agent_data/v2/interaction_data_train_filtered.jsonl" # TODO
+OPTS+=" --data_setting MTMD"
+OPTS+=" --data_dir ${PROJECT_PATH}/data/interactions/interaction_data_train.jsonl"
 # OPTS+=" --max_train_samples 30000"
 # model config
 OPTS+=" --max_seq_length 2048"
-OPTS+=" --model_name_or_path ${BASE_PATH}/model_weights/mistral-7b"
+OPTS+=" --model_name_or_path ${BASE_PATH}/model_weights/mistral-7b" # change the path to your model weights
 # training config
 OPTS+=" --logging_step 5" 
-OPTS+=" --batch_size_per_device 8" # TODO:
+OPTS+=" --batch_size_per_device 8"
 OPTS+=" --save_step 400"
 OPTS+=" --epochs 3"
 OPTS+=" --lr 1e-6"
@@ -36,7 +36,7 @@ OPTS+=" --start_step 0"
 OPTS+=" --loss_scale 6400"
 OPTS+=" --tensorboard ${PROJECT_PATH}/tensorboard_sft/"`date +"%Y%m%d%H%M%S"`
 
-OPTS+=" --save_dir ${PROJECT_PATH}/mistral" # TODO
+OPTS+=" --save_dir ${PROJECT_PATH}/ckpts" # TODO
 
 CMD="torchrun ${DISTRIBUTED_ARGS} ${PROJECT_PATH}/src/sft.py ${OPTS}"
 
@@ -44,4 +44,4 @@ echo "-------final CMD is------"
 echo "${CMD}"
 echo "-------final CMD end------"
 
-${CMD} 2>&1 | tee ${PROJECT_PATH}/logs/finetune_mistral.log
+${CMD} 2>&1 | tee ${PROJECT_PATH}/logs/sft.log

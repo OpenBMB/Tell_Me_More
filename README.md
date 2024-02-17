@@ -51,7 +51,6 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
       <figcaption><b>Construction of Training Data</b></figcaption>
   </figure>
 </center>
-
 **It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.**
 
 With IN3's annotations regarding task vagueness, missing details, and potential options, we apply several strategies during the construction of conversation records to better inspire the target model's robust inquiry and reasoning ability.
@@ -61,7 +60,19 @@ With IN3's annotations regarding task vagueness, missing details, and potential 
 - Diverse User Tones
 - Explicit Intention Summary
 
-### Usage [TODO]
+### Usage
+
+We utilize the [model-center](https://github.com/OpenBMB/ModelCenter) framework to conduct full-parameter fine-tuning of Mistral-7B on two 80GB A800s. Specific hyper-parameters can be tuned in [scripts/sft.sh](https://github.com/HBX-hbx/Mistral-Interact/blob/master/scripts/sft.sh). Here are some parameters need to check:
+
+- `model_name_or_path`: Path to the Mistral-7B-v0.1 base model weights. Note that the weights should be transformed from huggingface weight to bmtrain weight using the script provided **[here](https://github.com/OpenBMB/ModelCenter/blob/main/transfer/hugLLaMa2_bmtrainLLaMa2.py).**
+- `data_dir`: Path to the training data with conversation records.
+- `save_dir`: Path to the saved checkpoints.
+
+Just run the script in the root of repo to start training:
+
+```shell
+bash scripts/sft.sh
+```
 
 ## Evaluation
 
@@ -105,9 +116,10 @@ An agent's intention understanding capability can be assessed directly through u
 
 <center>
   <figure>
-    <img src="figures/exp_results_2.png" width="1000" height="200">
+    <img src="figures/exp_results_2.png" width="1000" height="170">
   </figure>
 </center>
+
 
 ## Contributions
 

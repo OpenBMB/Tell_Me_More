@@ -5,3 +5,4 @@ logs
 output
 tensorboard_sft
 src/__pycache__
+tensorboard_sft
