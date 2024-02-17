@@ -1,8 +1,6 @@
 ckpts
-interaction_output
-interaction_output_case_study
 logs
-output
+outputs
 tensorboard_sft
 src/__pycache__
-tensorboard_sft
+models

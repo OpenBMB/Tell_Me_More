@@ -115,20 +115,6 @@ def preprocess_data(task):
     test_prompt = f"<s>User: {SYS_PROMPT}\n\nHere is the task:\n{task}\nAgent: "
     return {"task": task, "prompt": test_prompt}
 
-def preprocess_llama_base_data(task):
-    "For llama-2-7b-chat"
-    test_prompt = f"""<s>[INST] <<SYS>>\n{SYS_PROMPT}\n<</SYS>>\n\n{task} [/INST]\n"""
-    return {"task": task, "prompt": test_prompt}
-
-def preprocess_mistral_base_data(task, tokenizer):
-    "For mistral-7b-instruct-v0.2"
-    messages = [
-        {"role": "system", "content": SYS_PROMPT},
-        {"role": "user", "content": f"Here is the task: {task}"},
-    ]
-    test_prompt = tokenizer.apply_chat_template(messages, tokenize=False)
-    return {"task": task, "prompt": test_prompt}
-
 def load_raw_dataset(args, tokenizer):
     tasks = []
     with open(args.data_dir, 'r', encoding='utf-8') as f:
@@ -136,10 +122,6 @@ def load_raw_dataset(args, tokenizer):
             task = json.loads(line)["task"]
             if args.model_name == "mistral-interact" or args.model_name == "llama2-interact":
                 processed_task = preprocess_data(task)
-            elif args.model_name == "llama-2-7b-chat":
-                processed_task = preprocess_llama_base_data(task)
-            elif args.model_name == "mistral-7b-instruct-v0.2":
-                processed_task = preprocess_mistral_base_data(task, tokenizer)
             else:
                 raise ValueError(f"Not supported model {args.model_name}")
             tasks.append(processed_task)
@@ -218,42 +200,6 @@ def main_loop(args, test_dataset, tokenizer, model):
                                 thought = pred.split("[INQUIRY THOUGHT]")[1].split("[INQUIRY]")[0].strip()
                                 response = pred.split("[INQUIRY]")[1].strip()
                         
-                        else:
-                            # for mistral-7b-instruct-v0.2 && llama-2-7b-chat
-                            cprint.ok(f"Prediction: {pred}")
-                            has_initial_thought = input("Is there an initial thought in prediction? (y or n) ").strip()
-                            has_summary = input("Is there an summary in prediction? (y or n) ").strip()
-
-                            if has_initial_thought == 'y':
-                                initial_thought = get_multiple_lines_input("Copy the initial thought here: ")
-                                # initial_thought: str = input("Copy the initial thought here: ").strip()
-                                save_dict["initial_thought"] = initial_thought
-
-                                if has_summary == 'y':
-                                    vague = False
-                                    save_dict["user_record"] = {"missing_details_num": 0, "missing_with_options": 0, "total_options": 0, "inappropriate_options": 0, "inappropriate_options_reason": None}
-                                else:
-                                    missing_num = int(input("What's the number of missing details in initial thought? ").strip())
-                                    missing_with_op = int(input("What's the total number of missing details with options in initial thought? ").strip())
-                                    total_options = int(input("What's the total number of options in initial thought? ").strip())
-                                    inappropriate_options = int(input("What's the number of options you think is unreasonable in initial thought? ").strip())
-                                    inappropriate_options_reasons = None
-                                    if inappropriate_options != 0:
-                                        inappropriate_options_reasons = int(input("Give some reasons why: ").strip())
-                                    save_dict["user_record"] = {"missing_details_num": missing_num, "missing_with_options": missing_with_op, "total_options": total_options, "inappropriate_options": inappropriate_options, "inappropriate_options_reason": inappropriate_options_reasons}
-
-                            if has_summary == 'y':
-                                thought = get_multiple_lines_input("Copy the summary thought here: ")
-                                response = get_multiple_lines_input("Copy the summary here: ")
-                                # thought = input("Copy the summary thought here: ").strip()
-                                # response = input("Copy the summary here: ").strip()
-                                summary_flag = True
-                            else:
-                                thought = get_multiple_lines_input("Copy the inquiry thought here: ")
-                                response = get_multiple_lines_input("Copy the inquiry here: ")
-                                # thought = input("Copy the inquiry thought here: ").strip()
-                                # response = input("Copy the inquiry here: ").strip()
-                            
                         break
                     except Exception as e:
                         print(pred)
