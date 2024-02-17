@@ -26,9 +26,10 @@ Current agent benchmarks usually assume the clearance of given tasks and exclude
 <center>
   <figure>
     <img src="figures/dataset_a.png" alt="Construction of IN3" width="800" height="450">
-      <figcaption><b>Construction of IN3</b></figcaption>
+      <center><b>Construction of IN3</b></center>
   </figure>
 </center>
+
 
 As illustrated in the figure above , with human-written seed tasks (**Step 1**), the model iteratively generates new tasks to augment the dataset, while sampling demonstrations from the dataset as new examples for itself to perform the next round of generation (**Step 2**). We perform human annotation of each task’s vagueness, missing details, and each detail’s importance level and potential options with the help of GPT-4 (**Step 3**). GPT-4 will first suggest the task’s vagueness and potential missing details with options and importance level, while human annotators take them as references and adapt them with their own perspectives and intentions.
 
@@ -45,13 +46,15 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
 
 - We employ two GPT-4s to simulate the conversation, with one imitating the user aiming to complete a certain task (**User-GPT**), and the other as an assistant aiming to clearly understand user intentions with the annotations from IN3 as help (**Assistant-GPT**).
 
+
+**It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.**
+
 <center>
   <figure>
     <img src="figures/dataset_bc.png" alt="Construction of Training Data" width="800" height="400">
-      <figcaption><b>Construction of Training Data</b></figcaption>
+      <center><b>Construction of Training Data</b></center>
   </figure>
 </center>
-It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.
 
 With IN3's annotations regarding task vagueness, missing details, and potential options, we apply several strategies during the construction of conversation records to better inspire the target model's robust inquiry and reasoning ability.
 
