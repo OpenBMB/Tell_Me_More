@@ -7,7 +7,7 @@ from utils import gpt_chatcompletion
 
 # TODO: "gpt4 / Llama-2-7b-chat-hf / mistral-7b-instruct-v0.2-hf / mistral-interact"
 model_name = "gpt4" 
-interaction_data_path = f'../data/user_interaction_records/user_interaction_record_{model_name}.jsonl'
+interaction_data_path = f'./data/user_interaction_records/user_interaction_record_{model_name}.jsonl'
 interaction_dataset = []
 
 with open(interaction_data_path, 'r', encoding='utf-8') as f:
@@ -74,6 +74,6 @@ for i in range(TASK_NUM):
         task_query_options_list.append(query_options_list)
     interaction_dataset[i]['query_options_list'] = task_query_options_list
 
-with open(f'../data/user_interaction_records/user_interaction_record_{model_name}_split.jsonl', 'w', encoding='utf-8') as f:
+with open(f'./data/user_interaction_records/user_interaction_record_{model_name}_split.jsonl', 'w', encoding='utf-8') as f:
     for data in interaction_dataset:
         f.write(json.dumps(data, ensure_ascii=False) + '\n')

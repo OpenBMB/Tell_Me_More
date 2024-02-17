@@ -1,0 +1,76 @@
+{
+    "vagueness_judgement_accuracy": {
+        "mistral-7b-instruct-v0.2-hf": 0.49,
+        "Llama-2-7b-chat-hf": 0.8,
+        "gpt4": 0.82,
+        "mistral-interact": 0.85
+    },
+    "missing_details_recover_rate": {
+        "mistral-7b-instruct-v0.2-hf": {
+            "1": 0.23,
+            "2": 0.57,
+            "3": 0.68,
+            "total_recover_rate": 0.52
+        },
+        "Llama-2-7b-chat-hf": {
+            "1": 0.29,
+            "2": 0.39,
+            "3": 0.61,
+            "total_recover_rate": 0.42
+        },
+        "gpt4": {
+            "1": 0.38,
+            "2": 0.63,
+            "3": 0.75,
+            "total_recover_rate": 0.61
+        },
+        "mistral-interact": {
+            "1": 0.28,
+            "2": 0.67,
+            "3": 0.72,
+            "total_recover_rate": 0.62
+        }
+    },
+    "summary_intention_coverage_rate": {
+        "mistral-7b-instruct-v0.2-hf": 0.91,
+        "Llama-2-7b-chat-hf": 0.62,
+        "gpt4": 1.0,
+        "mistral-interact": 0.96
+    },
+    "options_presenting_rate": {
+        "mistral-7b-instruct-v0.2-hf": 0.42,
+        "Llama-2-7b-chat-hf": 0.48,
+        "gpt4": 0.4,
+        "mistral-interact": 0.84
+    },
+    "options_reasonable_rate": {
+        "mistral-7b-instruct-v0.2-hf": 1.0,
+        "Llama-2-7b-chat-hf": 0.82,
+        "gpt4": 1.0,
+        "mistral-interact": 0.99
+    },
+    "average_provided_options": {
+        "mistral-7b-instruct-v0.2-hf": 1.46,
+        "Llama-2-7b-chat-hf": 1.35,
+        "gpt4": 1.21,
+        "mistral-interact": 2.72
+    },
+    "average_inquired_missing_details_per_round": {
+        "mistral-7b-instruct-v0.2-hf": 2.8,
+        "Llama-2-7b-chat-hf": 2.49,
+        "gpt4": 2.31,
+        "mistral-interact": 1.26
+    },
+    "average_conversation_rounds": {
+        "mistral-7b-instruct-v0.2-hf": 1.62,
+        "Llama-2-7b-chat-hf": 3.02,
+        "gpt4": 2.69,
+        "mistral-interact": 4.15
+    },
+    "average_inquired_missing_details": {
+        "mistral-7b-instruct-v0.2-hf": 3.91,
+        "Llama-2-7b-chat-hf": 5.8,
+        "gpt4": 4.78,
+        "mistral-interact": 4.52
+    }
+}

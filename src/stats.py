@@ -21,9 +21,9 @@ def tell_vague(data):
 label_setting = 'mix'
 # TODO: "gpt4 / Llama-2-7b-chat-hf / mistral-7b-instruct-v0.2-hf / mistral-interact"
 model_name = "mistral-interact" 
-interaction_data_path = f'../data/user_interaction_records/user_interaction_record_{model_name}_split.jsonl'
-labeller_data_path = f"../data/data_labeling/test_data_report_{label_setting}.jsonl"
-metric_save_path = f"../data/user_interaction_records/metrics/metric_{label_setting}_{model_name}.json"
+interaction_data_path = f'./data/user_interaction_records/user_interaction_record_{model_name}_split.jsonl'
+labeller_data_path = f"./data/data_labeling/test_data_report_{label_setting}.jsonl"
+metric_save_path = f"./data/user_interaction_records/metrics/metric_{label_setting}_{model_name}.json"
 
 interaction_dataset = []
 labeller_dataset = []

@@ -1,8 +1,19 @@
-# Mistral-Interact
+<div align="center">
+    <h1> <img src="figures/agent.png" height=60 align="texttop">  Mistral-Interact</h1>
+</div>
+
+![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-green.svg)![Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#training">Training</a> •
+  <a href="#Evaluation">Evaluation</a> •
+  <a href="#Citation">Citation</a>
+</p>
 
 The repo is for the implementation and evaluation of Mistral-Interact, a powerful model that proactively assesses task vagueness, inquires user intentions, and refines them into actionable goals before starting downstream agent task execution.
 
-Source codes and datasets for *[Tell Me More! Towards Implicit User Intention Understanding of Language Model Driven Agents](https://arxiv.org/abs/2402.09205)*. We release Intention-in-Interaction (IN3) benchmark and develop Mistral-Interact, capable of discerning vague instructions and recovering missing details.
+Source codes and datasets for **[Tell Me More! Towards Implicit User Intention Understanding of Language Model Driven Agents](https://arxiv.org/abs/2402.09205)**. We release Intention-in-Interaction (IN3) benchmark and develop Mistral-Interact, capable of discerning vague instructions and recovering missing details.
 
 ## Features
 
@@ -21,7 +32,7 @@ Mistral-Interact has the following features:
 
 Current agent benchmarks usually assume the clearance of given tasks and exclude user intention understanding as an important aspect for evaluation. Given this ignorance in assessment, we formulate Intention-in-Interaction (IN3), a benchmark aiming to test the agent’s interaction ability through explicit task vagueness judgment and user intention understanding.
 
-**It is located in the [data/IN3 ](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/IN3) directory.**
+**It is located in the [data/IN3](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/IN3) directory.**
 
 <center>
   <figure>
@@ -83,6 +94,8 @@ An agent's intention understanding capability can be assessed directly through u
 
 ### Instruction Understanding
 
+Instruction understanding does not involve any real-time agent execution, so we directly evaluate the language models themselves during interaction to judge their capability to serve as a robust upstream module in agent design.
+
 #### Metrics
 
 - **Vagueness Judgment Accuracy**: We calculate the percent of the model’s judgments of task t’s vagueness (vague or clear) that are aligned with ground truth.
@@ -95,7 +108,27 @@ An agent's intention understanding capability can be assessed directly through u
 - **Average Conversation Rounds**: Average number of conversation rounds that the model has with the user for one task.
 - **Average Inquired Missing Details Per Round**: Average number of missing details the model inquires for one round of conversation.
 
-#### Usage [TODO]
+#### Usage
+
+We use the [test split](https://github.com/HBX-hbx/Mistral-Interact/blob/master/data/IN3/test.jsonl) of IN3 agent tasks for evaluation. Conversation records based on **Mistral-Interact**, **LLaMA-2-7B-Chat**, **Mistral-7B-Instruct-v0.2**, and **GPT-4** are located in **[here](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/user_interaction_records)**.
+
+- Firstly, we split the inquiry from Assistant into separate queries and options with the help of GPT-4. (Do not forget to add your API key in **src/utils.py**)
+
+  ```python
+  python src/split_query_options.py
+  ```
+
+- Then, we run the following code to calculate various statistics for each model.
+
+  ```python
+  python src/stats.py
+  ```
+
+- Finally merge the results.
+
+  ```python
+  python src/merge.py
+  ```
 
 #### Results
 
@@ -104,16 +137,15 @@ An agent's intention understanding capability can be assessed directly through u
     <img src="figures/exp_results.png" width="800" height="300">
   </figure>
 </center>
-
 ### Instruction Execution
+
+To evaluate the effectiveness of the implicit intention understanding for instruction execution, we integrate Mistral-Interact as an upstream interaction module into the [XAgent](https://github.com/OpenBMB/XAgent) framework, an autonomous agent system for complex task solving.
 
 #### Metrics
 
 - **Unnecessary Subtasks / Milestones**: The percent of subtasks or milestones that are regarded as unnecessary by the user under the detailed task goal with clear user intentions.
 - **General Subtasks / Milestones**: The percent of subtasks or milestones that are too general, instead of focusing on the user's specific intentions.
 - **Tool Invocations Per Subtask / Milestone**: The average number of tool invocations for one subtask or milestone, which reflects the efficiency of agent execution.
-
-#### Usage [TODO]
 
 #### Results
 
@@ -122,8 +154,6 @@ An agent's intention understanding capability can be assessed directly through u
     <img src="figures/exp_results_2.png" width="1000" height="170">
   </figure>
 </center>
-
-
 ## Contributions
 
 - We formulate a new research question regarding the enhancement of user-agent interaction through robust intention understanding, and release the IN3 benchmark that focuses on user participation within current agent designs.
@@ -138,7 +168,7 @@ An agent's intention understanding capability can be assessed directly through u
 
 ## Citation
 
-Feel free to cite the paper if you find it is useful.
+Feel free to cite our paper if you find it is useful.
 
 ```bibtex
 @article{cheng2024tell,

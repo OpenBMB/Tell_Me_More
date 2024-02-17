@@ -1,0 +1,16 @@
+{
+    "vagueness_judgement_accuracy": 0.7962962962962963,
+    "missing_details_recover_rate": {
+        "1": 0.2892156862745098,
+        "2": 0.38763861709067193,
+        "3": 0.6097560975609757,
+        "total_recover_rate": 0.422100122100122
+    },
+    "summary_intention_coverage_rate": 0.6186594202898551,
+    "options_presenting_rate": 0.4763620875505047,
+    "options_reasonable_rate": 0.8178783927425232,
+    "average_provided_options": 1.3504118855486806,
+    "average_inquired_missing_details_per_round": 2.4858138238573027,
+    "average_conversation_rounds": 3.0185185185185186,
+    "average_inquired_missing_details": 5.804347826086956
+}
