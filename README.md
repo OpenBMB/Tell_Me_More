@@ -26,12 +26,12 @@ Source codes and datasets for **[Tell Me More! Towards Implicit User Intention U
 
 Mistral-Interact has the following features:
 
-- **Better understanding of user judgments** Among all the open-source models, Mistral-Interact is the best at predicting task vagueness and missing details that users regard as necessary.
-- **Comprehensive summarization of user intentions** Mistral-Interact is effective in making an explicit and comprehensive summary based on detailed user intentions.
+- **Better understanding of user judgments:** Among all the open-source models, Mistral-Interact is the best at predicting task vagueness and missing details that users regard as necessary.
+- **Comprehensive summarization of user intentions:** Mistral-Interact is effective in making an explicit and comprehensive summary based on detailed user intentions.
 
-- **Enhanced model-user interaction experience** Mistral-Interact inquires about missing details in vague tasks more reasonably and friendly than other open-source models, thus promoting a clearer understanding of the user’s implicit intentions.
+- **Enhanced model-user interaction experience:** Mistral-Interact inquires about missing details in vague tasks more reasonably and friendly than other open-source models, thus promoting a clearer understanding of the user’s implicit intentions.
 
-- **Comparable performance with closed-source GPT-4** We prove that smaller-scale model experts can approach or even exceed general-purpose large-scale models across various aspects including vagueness judgment, comprehensiveness of summaries, and friendliness of interaction.
+- **Comparable performance with closed-source GPT-4:** We prove that smaller-scale model experts can approach or even exceed general-purpose large-scale models across various aspects including vagueness judgment, comprehensiveness of summaries, and friendliness of interaction.
 
 <div><a id="Introduction"></a></div>
 
