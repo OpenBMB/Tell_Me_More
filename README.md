@@ -41,7 +41,7 @@ Mistral-Interact has the following features:
 
 Current agent benchmarks usually assume the clearance of given tasks and exclude user intention understanding as an important aspect for evaluation. Given this ignorance in assessment, we formulate Intention-in-Interaction (IN3), a benchmark aiming to test the agent’s interaction ability through explicit task vagueness judgment and user intention understanding.
 
-**It is located in the [data/IN3](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/IN3) directory.**
+**It is located in the [data/IN3](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/IN3) directory.** You can also download it from [here](https://huggingface.co/datasets/hbx/IN3).
 
 <div align="center">
     <img src="figures/dataset_a.png" alt="Construction of IN3" width="600"/>
@@ -68,8 +68,7 @@ As illustrated in the figure above , with human-written seed tasks (**Step 1**),
 
 - We employ two GPT-4s to simulate the conversation, with one imitating the user aiming to complete a certain task (**User-GPT**), and the other as an assistant aiming to clearly understand user intentions with the annotations from IN3 as help (**Assistant-GPT**).
 
-
-**It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.**
+**It is located in the [data/interactions](https://github.com/HBX-hbx/Mistral-Interact/tree/master/data/interactions) directory.** You can also download it from [here](https://huggingface.co/datasets/hbx/IN3-interaction).
 
 <div align="center">
     <img src="figures/dataset_bc.png" alt="Construction of Training Data" width="800"/>
@@ -104,7 +103,7 @@ bash scripts/sft.sh
 
 ## 🎮 Inference
 
-Download **Mistral-Interact** [here]((https://huggingface.co/hbx/Mistral-Interact)), and put it under `./models`. The model weights downloaded from huggingface is the format of huggingface. For inference, we need to convert the format from huggingface to model-center using [src/hf_2_mc.py](https://github.com/HBX-hbx/Mistral-Interact/blob/master/src/hf_2_mc.py).
+Download **Mistral-Interact** [here](https://huggingface.co/hbx/Mistral-Interact), and put it under `./models`. The model weights downloaded from huggingface is the format of huggingface. For inference, we need to convert the format from huggingface to model-center using [src/hf_2_mc.py](https://github.com/HBX-hbx/Mistral-Interact/blob/master/src/hf_2_mc.py).
 
 Then run the following script in the root of repo to start inferencing:
 
